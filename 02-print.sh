@@ -39,6 +39,6 @@ echo -e "\e[36Text in Cyan Color"
 
 # https://misc.flogisoft.com/bash/tip_colors_and_formatting
 
-## Color always follows
-echo -e "\e[31mtext in red color"
+## Color always follows,When we enable color and its our responsibility to disable it as well, 0 color code is used to disable
+echo -e "\e[31mtext in red color\e[0m"
 echo text in normal color
