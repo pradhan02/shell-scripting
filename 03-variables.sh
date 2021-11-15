@@ -20,3 +20,10 @@ echo Value of a = ${a}
 x=10
 y-20
 echo ${x}X{y} = 200
+
+# DATE=2021-10-20
+ DATE=$(DATE+$%F)
+echo Good Morning, Welcome, Today date is #DATE
+
+# Arth subtitution
+ADD=$((2+3+4+5+6*7/2))
