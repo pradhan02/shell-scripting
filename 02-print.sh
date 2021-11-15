@@ -17,4 +17,6 @@ echo Welcome
 
 echo -e "Hello World\nWelcome"
 
-echo -e "Word1\tword2"
+echo -e "Word1\t\tword2"
+
+
