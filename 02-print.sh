@@ -20,7 +20,7 @@ echo -e "Hello World\nWelcome"
 echo -e "Word1\t\tword2"
 
 # Colored Output
-# syntax: echo -e "\e(COLmMessage"
+# syntax: echo -e "\e[COLmMessage"
 
 ## Colors      CODE
 # Red           31
@@ -30,11 +30,11 @@ echo -e "Word1\t\tword2"
 # Magenta       35
 # Cyan          36
 
-echo -e "\e(31mText in Red Color"
-echi -e "\e(32mText in Green Color"
-echo -e "\e(33mText in Yellow Color"
-echo -e "\e(34 Text in Blue Color"
-echo -e "\e(35mText in Magenta Color"
-echo -e "\e(36Text in Cyan Color"
+echo -e "\e[31mText in Red Color"
+echi -e "\e[32mText in Green Color"
+echo -e "\e[33mText in Yellow Color"
+echo -e "\e[34 Text in Blue Color"
+echo -e "\e[35mText in Magenta Color"
+echo -e "\e[36Text in Cyan Color"
 
 
