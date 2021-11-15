@@ -15,3 +15,8 @@ b=abc
 echo Value of a = $a
 echo Value of b = $b
 echo Value of a = ${a}
+
+
+x=10
+y-20
+echo ${x}X{y} = 200
