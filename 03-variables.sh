@@ -27,3 +27,5 @@ echo Good Morning, Welcome, Today date is #DATE
 
 # Arth subtitution
 ADD=$((2+3+4+5+6*7/2))
+echo added = $ADD
+
