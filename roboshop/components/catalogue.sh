@@ -35,3 +35,8 @@ Print "Install NodeJs dependencies"
 cd /home/roboshop/catalogue
 npm install --unsafe-perm &>>$LOG
 Stat $?
+
+Print "Fix App Permissions"
+chown -R roboshop:roboshop /home/roboshop
+Stat $?
+
