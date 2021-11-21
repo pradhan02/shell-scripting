@@ -21,7 +21,6 @@ catalogue: git-pull ##  Setup Catalogue component
 	@sudo bash components/catalogue.sh
 
 user: git-pull ## Setup user component
- #### Setup user component
 	@sudo bash components/user.sh
 
 shipping: git-pull ## Setup shipping component
