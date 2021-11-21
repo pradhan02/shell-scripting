@@ -15,10 +15,10 @@ sed -i -e 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf &>>$LOG
 Stat $?
 
 Print "Start MongoDB"
-systemctl start mongodb &>>$LOG
+systemctl restart mongod &>>$LOG
 
 Print "Enable MongoDB Service"
-systemctl enable mongodb &>>$LOG
+systemctl enable mongod &>>$LOG
 Stat $?
 
 Print "Download Schema"
