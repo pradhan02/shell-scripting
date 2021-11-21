@@ -16,6 +16,7 @@ Stat $?
 
 Print "Start MongoDB"
 systemctl restart mongod &>>$LOG
+Stat $?
 
 Print "Enable MongoDB Service"
 systemctl enable mongod &>>$LOG
