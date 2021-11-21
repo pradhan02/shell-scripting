@@ -13,5 +13,5 @@ Print () {
         fi
         }
 
-        LOGm/tmp/roboshop.log
+        LOG=/tmp/roboshop.log
         rm -f $LOG
