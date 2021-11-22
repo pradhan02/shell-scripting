@@ -2,6 +2,10 @@
 
 source components/common.sh
 
+MSPACE=$(CAT $0 | grep ^Print | awk -F '"" '{print $2}' | awk '{ print length }' | sort | tail -1)
+
+
+
 Print "Install NodeJS"
 yum install nodejs make gcc-c++ -y &>>$LOG
 Stat $?
