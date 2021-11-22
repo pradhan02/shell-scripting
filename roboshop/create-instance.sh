@@ -8,4 +8,16 @@ else
   echo "Instance already exists"
 fi
 
+IP=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=$1" | jq ".Reservations[].Instances[].PrivateIpAddress"  | grep -v null | xargs)
+## xargs is used to remove the double quotes
+
+
+
+sed -e "s/DNSNAME/$1.roboshop.internal/" -e "s/IPADDRESS/${IP}" record.json >/tmp/record.json >/tmp/record.json
+aws route53 change-resource-record-sets --hosted-zone-id Z025991117KJKQB4PF332 --change-batch file:///tmp/record.json | jq
+
+
+
+
+
 
