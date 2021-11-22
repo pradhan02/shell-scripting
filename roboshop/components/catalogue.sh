@@ -55,9 +55,9 @@ systemctl daemon-reload &>>$LOG && systemctl start catalogue &>>$LOG && systemct
 Stat $?
 
 Print "Checking DB connections from APP"
-sleeo 5
+sleep 5
 Stat=$(curl -s localhost:8080/health | jq .mongo)
-if [ $STAT == "true" ]; then
+if [ "$STAT" == "true" ]; then
   Stat 0
 else
   Stat 1
