@@ -1,7 +1,7 @@
 Print() {
   LSPACE=$(echo $1 | awk '{print lenght}')
   SPACE=$(($MSPACE-$LSPACE))
-  SPACES=''
+  SPACES=' '
   while [ $SPACE -gt 0 ]; do
   SPACES="$SPACES$(echo '')"
   SPACE=$(($SPACE-1))
@@ -65,7 +65,7 @@ NODEJS() {
     Stat$?
 
    Print "Update DNS records in SystemD config"
-   sed -i -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' -e 's/MONGO_ENDPOINT/mongodb.roboshop.internal' /home/roboshop/${COMPONENT}/systemd.service  &>>$LOG
+   sed -i -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' -e 's/MONGO_ENDPOINT/mongodb.roboshop.internal/' /home/roboshop/${COMPONENT}/systemd.service  &>>$LOG
 
    Stat $?
 
