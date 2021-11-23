@@ -61,8 +61,8 @@ NODEJS() {
     Stat $?
 
     Print "Fix App Permissions"
-    chown -R roboshop:roboshop /home/robosh
-    Stat$?
+    chown -R roboshop:roboshop /home/roboshop
+    Stat $?
 
    Print "Update DNS records in SystemD config"
    sed -i -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' -e 's/MONGO_ENDPOINT/mongodb.roboshop.internal/' /home/roboshop/${COMPONENT}/systemd.service  &>>$LOG
