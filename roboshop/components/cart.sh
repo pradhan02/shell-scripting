@@ -7,6 +7,7 @@ MSPACE=$(cat $0 components/common.sh | grep Print | awk -F '"' '{print $2}' | aw
 
 COMPONENT_NAME=Cart
 COMPONENT=cart
-NODEJS
 
+NODEJS
+CHECK_REDIS_FROM_APP
 
