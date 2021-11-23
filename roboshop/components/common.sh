@@ -37,7 +37,7 @@ NODEJS() {
       useradd roboshop &>>$LOG
     fi
     Stat $?
-}
+
 
     Print "Download $COMPONENT_NAME"
     curl -s -L -o /tmp/${COMPONENT}.zip "https://github.com/roboshop-devops-project/user/archive/main.zip" &>>$LOG
