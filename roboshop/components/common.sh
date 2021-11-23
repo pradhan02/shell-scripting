@@ -21,5 +21,70 @@ Stat() {
   fi
 }
 
-        LOG=/tmp/roboshop.log
-        rm -f $LOG
+LOG=/tmp/roboshop.log
+rm -f $LOG
+
+NODEJS() {
+    Print "Install NodeJS"
+    yum install nodejs make gcc-c++ -y &>>$LOG
+    Stat $?
+
+    Print "Add Roboshop User"
+    id roboshop &>>$LOG
+    if [ $? -eq 0 ];then
+      echo unser roboshop already exists
+    else
+      useradd roboshop &>>$LOG
+    fi
+    Stat $?
+}
+
+    Print "Download $COMPONENT_NAME"
+    curl -s -L -o /tmp/${COMPONENT}.zip "https://github.com/roboshop-devops-project/user/archive/main.zip" &>>$LOG
+    Stat $?
+
+    Print "Remove Old Content"
+    rm -rf /home/roboshop/${COMPONENT}
+    Stat $?
+
+    Print "Extract $COMPONENT_NAME  content"
+    unzip -o -d /home/roboshop /tmp/${COMPONENT}.zip &>>$LOG
+    Stat $?
+
+    Print "Copy Content"
+    mv /home/roboshop/user-main /home/roboshop/${COMPONENT}
+    Stat $?
+
+    Print "Install NodeJs dependencies"
+    cd /home/roboshop/${COMPONENT}
+    npm install --unsafe-perm &>>$LOG
+    Stat $?
+
+    Print "Fix App Permissions"
+    chown -R roboshop:roboshop /home/robosh
+    Stat$?
+
+   Print "Update DNS records in SystemD config"
+   sed -i -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' -e 's/MONGO_ENDPOINT/mongodb.roboshop.internal' /home/roboshop/${COMPONENT}/systemd.service  &>>$LOG
+
+   Stat $?
+
+
+   Print "Copy systemD file"
+   mv /home/roboshop/${COMPONENT}/systemd.service /etc/systemd/system/${COMPONENT}.service
+   Stat $?
+
+   Print "Start ${COMPONENT_NAME} Service"
+   systemctl daemon-reload &>>$LOG && systemctl start ${COMPONENT} &>>$LOG && systemctl enable ${COMPONENT} &>>$LOG
+   Stat $?
+}
+
+
+
+
+
+
+
+
+
+

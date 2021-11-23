@@ -1,13 +1,14 @@
 #!/bin/bash
 
 source components/common.sh
-
 MSPACE=$(cat $0 | grep ^Print | awk -F '"' '{print $2}' | awk '{ print length }' | sort | tail -1)
 
+COMPONENT_NAME=User
+COMPONENT=user
 
-COMPONENT_NAME=Catalogue
-COMPONENT=catalogue
 NODEJS
+
+
 
 Print "Checking DB connections from APP"
 sleep 5
@@ -17,5 +18,19 @@ if [ "$STAT" == "true" ]; then
 else
   Stat 1
 fi
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
